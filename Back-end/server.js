@@ -29,6 +29,7 @@ connection.once('open', ()=> {
 //Routes - Separate Routing
 app.use('/users', userRoutes );
 
+//Start Server on Port
 app.listen(port,() => {
     console.log(`Server Running on Port : ${port} `);
 })
