@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
 import axios from "axios";
 
-{/*import {BiChevrondown} from "react-icons/bi"*/}
 function AddItem () {
 
   const [name, setName] = useState('');
   const [price, setPrice] = useState(0);
   const [description, setdescription] = useState('');
   const [img, setImg] = useState('');
-  const [category, setcategory] = useState('');
-  const [status, setStatus] = useState(true);
-  const [veg, setVeg] = useState(true);
+  const [category, setcategory] = useState('starters');
+  const [status, setStatus] = useState(false);
+  const [veg, setVeg] = useState(false);
 
   const [foodAdd, setFoodAdd] = useState(false);
 
@@ -33,7 +32,7 @@ function AddItem () {
 
   const handleSave = (e) => {
     e.preventDefault();
-    if(name == '' | price == '' |  description == ''| img == '') {
+    if(name === '' | price === '' |  description === ''| img === '') {
       alert("Fill the empty values!")
       return
     }
@@ -41,7 +40,7 @@ function AddItem () {
     .then(() => {
         setFoodAdd(true);
     })
-    .categorych((error) => {alert("Error adding food !");})
+    .catch((error) => {alert("Error adding food !");})
     }
 
   return (
@@ -154,10 +153,10 @@ function AddItem () {
                         </div>
                       </div>
 
-                    {/* categoryegory Name */}
+                    {/* Category Name */}
                     <div>
-                      <span class="ml-3 text-sm font-medium text-black">categoryegory</span>
-                          <label for="categoryegory" class="sr-only">categoryegory</label>
+                      <span class="ml-3 text-sm font-medium text-black">Category</span>
+                          <label for="Category" class="sr-only">Category</label>
                           <select 
                           class="block py-2.5 px-0 w-full text-sm text-black- bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer"
                           value={category} onChange={(e) => setcategory(e.target.value)}
@@ -168,31 +167,56 @@ function AddItem () {
                           </select>
                     </div>
                     
-
-                      <div>
-                        {/* Status Name */}
-                      <label class="relative inline-flex items-center cursor-pointer">
-                        <input type="checkbox" value={status} onChange={(e) => setStatus(e.target.value)} class="sr-only peer" />
-                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-mypink rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-mypink"></div>
-                        <span class="ml-3 text-sm font-medium text-black">Availability</span>
-                      </label>
-
-                      </div>
+                    {/* Avaialibility Button */}
+                        <div className="relative flex flex-col items-center justify-center ">
+                        <div className="flex">
+                            <label class="inline-flex relative items-center mr-5 cursor-pointer">
+                                <input
+                                    type="checkbox"
+                                    className="sr-only peer"
+                                    checked={status}
+                                    readOnly
+                                />
+                                <div
+                                    onClick={() => {
+                                        setStatus(!status);
+                                    }}
+                                    className="w-11 h-6 bg-gray-200 rounded-full peer  peer-focus:ring-green-300  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600"
+                                ></div>
+                                <span className="ml-2 text-sm font-medium text-gray-900">
+                                    Availability
+                                </span>
+                            </label>
+                        </div>
+                    </div>
                       
 
-                      <div>
-                      {/* Veg Name */}
-                      <label class="relative inline-flex items-center cursor-pointer">
-                        <input type="checkbox" value={veg} onChange={(e) => setVeg(e.target.value)} class="sr-only peer" />
-                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-mypink rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-500"></div>
-                        <span class="ml-3 text-sm font-medium text-black">Vegetarian</span>
-                      </label>
-                      </div>
+                    {/* Vegetarian Button */}
+                    <div className="relative flex flex-col items-center justify-center ">
+                        <div className="flex">
+                            <label class="inline-flex relative items-center mr-5 cursor-pointer">
+                                <input
+                                    type="checkbox"
+                                    className="sr-only peer"
+                                    checked={veg}
+                                    readOnly
+                                />
+                                <div
+                                    onClick={() => {
+                                        setVeg(!veg);
+                                    }}
+                                    className="w-11 h-6 bg-gray-200 rounded-full peer  peer-focus:ring-green-300  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600"
+                                ></div>
+                                <span className="ml-2 text-sm font-medium text-gray-900">
+                                    Vegetarian
+                                </span>
+                            </label>
+                        </div>
+                    </div>
 
                   </div>
                   <div className="bg-gray-50 px-4 py-3 grid grid-cols-2  sm:px-6">
                     { foodAdd ? <div className='bg-green-500 w-4/5 text-white rounded-md font-semibold py-2'>Food Added!</div> : <div></div>  }
-                    
                     <button
                       type="submit"
                       className="flex col-start-2 w-4/5 justify-center rounded-md bg-mypink py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-mypink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
