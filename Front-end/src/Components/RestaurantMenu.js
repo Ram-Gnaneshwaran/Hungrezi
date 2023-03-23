@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import ProductItem from './ProductItem'
+import MenuItem from './MenuItem';
 
 
 function RestaurantMenu() {
@@ -36,7 +36,7 @@ function RestaurantMenu() {
 
         {foodItems ? foodItems.map((food) => {
             return (
-                <ProductItem 
+                <MenuItem 
                     Imgsrc={food.img}
                     title={food.name}
                     desc={food.description}

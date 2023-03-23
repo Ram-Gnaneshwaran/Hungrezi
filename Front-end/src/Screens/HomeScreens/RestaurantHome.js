@@ -5,10 +5,13 @@ import SearchImg from '../../Icons/Search.svg';
 import MenuImg from '../../Icons/Menu-b.svg';
 import OrderImg from '../../Icons/Order-b.svg';
 import LogoutImg from '../../Icons/Logout.svg';
+import AddImg from '../../Icons/Add Item.svg';
 
 import { Routes, Route } from 'react-router-dom';
 import Cart from '../../Components/Cart';
 import RestaurantMenu from '../../Components/RestaurantMenu';
+import OrderDetail from '../../Components/OrderDetails';
+import AddItem from '../../Components/AddItem';
 
 
 function RestaurantHome() {
@@ -23,6 +26,9 @@ function RestaurantHome() {
   const handleOrder = () => {
     setoption(2);
   }
+  const handleAdd = () => {
+    setoption(3);
+  }
 
   const handleLogout = (e) => {
     navigate('/Role');
@@ -31,7 +37,8 @@ function RestaurantHome() {
   const content = () => {
     switch(option) {
       case 1: return <RestaurantMenu></RestaurantMenu>
-      case 2: return <Cart></Cart>
+      case 2: return <OrderDetail></OrderDetail>
+      case 3: return <AddItem></AddItem>
       // default: return <div>Error</div>
     }
   }
@@ -73,7 +80,7 @@ function RestaurantHome() {
       {/* Menu Button */}
       
       <button
-        class="p-2.5 mt-3 flex w-full items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-mypurple text-black hover:text-white "
+        class="p-2.5 mt-3 flex w-full items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-mypink text-black hover:text-white "
         onClick={handleMenu}
       >
         <img class="aspect-square " src={MenuImg} />
@@ -84,19 +91,29 @@ function RestaurantHome() {
       {/* Cart Button */}
       
       <button
-        class="p-2.5 mt-3 flex w-full items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-mypurple text-black hover:text-white"
+        class="p-2.5 mt-3 flex w-full items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-mypink text-black hover:text-white"
         onClick={handleOrder}
       >
         <img class="aspect-square " src={OrderImg} />
-        <span class="text-[15px] ml-4 font-bold">Cart</span>
+        <span class="text-[15px] ml-4 font-bold">OrderDetails</span>
       </button>
+
+      {/* Add Item Button */}
+      <button
+          class="p-2.5 mt-3 flex w-full items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-mypink text-black hover:text-white"
+          onClick={handleAdd}
+        >
+        <img class="aspect-square " src={AddImg} />
+         <span class="text-[15px] ml-4 font-bold">Add Item</span>
+        </button>
+
 
       {/* Divider */}
       <div class="my-4 bg-gray-600 h-[1px]"></div>
       
       {/* Logout Button */}
       <button
-        class="p-2.5 mt-3 flex w-full items-center rounded-md px-4 duration-300 hover:bg-mypurple text-black hover:text-white"
+        class="p-2.5 mt-3 flex w-full items-center rounded-md px-4 duration-300 hover:bg-mypink text-black hover:text-white"
         onClick={handleLogout}
       >
         <img class="aspect-square " src={LogoutImg} />
