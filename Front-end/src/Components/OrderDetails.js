@@ -10,11 +10,11 @@ const OrderDetail = () => {
           <table class=" text-[15px] ml-4 font-bold w-6/12">
             <thead class="text-white">
               <tr >
-                <th class="p-2.5 mt-3 items-center rounded-md px-4 text-md py-3 bg-mypink py-3 ">Order ID</th>
-                <th class="items-center rounded-md px-4 text-md px-3 bg-mypink py-3">Customer Name</th>
-                <th class="items-center rounded-md px-4 text-md py-3 text-md py-3 bg-mypink py-3">Items</th>
-                <th class="items-center rounded-md px-4 text-md py-3 text-md py-3 bg-mypink py-3">Total</th>
-                <th class="items-center rounded-md px-4 text-md py-3 text-md py-3 bg-mypink py-3">Order Status</th>
+                <th class="p-2.5 mt-3 items-center rounded-md px-4 text-md bg-mypink py-3 ">Order ID</th>
+                <th class="items-center rounded-md px-4 text-md  bg-mypink py-3">Customer Name</th>
+                <th class="items-center rounded-md px-4 text-md  text-md  bg-mypink py-3">Items</th>
+                <th class="items-center rounded-md px-4 text-md  text-md  bg-mypink py-3">Total</th>
+                <th class="items-center rounded-md px-4 text-md  text-md bg-mypink py-3">Order Status</th>
               </tr>
 
             </thead>
