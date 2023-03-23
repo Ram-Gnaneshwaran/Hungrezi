@@ -1,7 +1,7 @@
 // Import Packages
 const express = require('express'); //Framework for APIs
 const cors = require('cors'); //Provides Express Middleware
-const mongoose = require('mongoose');
+const mongoose = require('mongoose');//Mongoose for Mapping to MongoDB
 
 //Import Router
 const userRoutes = require('./routes/user_routes');
@@ -11,7 +11,7 @@ require('dotenv').config();
 
 //Initialise App
 const app = express();
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 9000;
 
 //Middlewares
 app.use(cors());
