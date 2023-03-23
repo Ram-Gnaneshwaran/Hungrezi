@@ -5,6 +5,7 @@ const mongoose = require('mongoose');//Mongoose for Mapping to MongoDB
 
 //Import Router
 const userRoutes = require('./routes/user_routes');
+const foodRoutes = require('./routes/food_routes');
 
 //Dotenv - For Connection
 require('dotenv').config();
@@ -28,6 +29,7 @@ connection.once('open', ()=> {
 
 //Routes - Separate Routing
 app.use('/users', userRoutes );
+app.use('/food', foodRoutes );
 
 //Start Server on Port
 app.listen(port,() => {
