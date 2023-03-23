@@ -21,8 +21,9 @@ router.route('/add').post((req, res) => {
     const img = req.body.img;
     const category = req.body.category;
     const status = req.body.status;
+    const veg = req.body.veg;
     
-    const newFood = new Food({restaurantId, name, price,description,img, category, status, });
+    const newFood = new Food({restaurantId, name, price,description,img, category, status, veg});
 
     newFood.save()
         .then(()=> {res.json('Food Added!')})
@@ -55,6 +56,7 @@ router.route('/update/:id').post((req,res) => {
             img : req.body.img,
             category : req.body.category,
             status : req.body.status,
+            veg : req.body.veg,
             
          })
          .then(food => {

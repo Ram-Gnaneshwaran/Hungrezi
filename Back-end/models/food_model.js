@@ -31,6 +31,10 @@ const foodSchema = new Schema({
         type: Boolean,
         required: true,
     },
+    veg: {
+        type: Boolean,
+        required: true,
+    },
     
     
 

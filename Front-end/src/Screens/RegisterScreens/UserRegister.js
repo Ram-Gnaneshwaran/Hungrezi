@@ -63,7 +63,8 @@ function UserRegister() {
                 <div class="absolute left-0 top-0 inline-flex h-full w-10 items-center justify-center text-gray-400">
                   <i class="fas fa-user text-blue-500"></i>
                 </div>
-                <input type="text" name="username" class="w-full rounded-2xl border border-gray-400 py-2 pl-10 pr-4 text-sm placeholder-gray-500 focus:border-blue-400 focus:outline-none" placeholder="Enter Username" value={username} onChange={(e) => setUsername(e.target.value) } />
+                <input type="text" name="username" class="w-full rounded-2xl border border-gray-400 py-2 pl-10 pr-4 text-sm placeholder-gray-500 focus:border-blue-400 focus:outline-none" placeholder="Enter Username" 
+                value={username} onChange={(e) => setUsername(e.target.value) } />
               </div>
             </div>
             
