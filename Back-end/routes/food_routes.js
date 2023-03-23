@@ -57,7 +57,7 @@ router.route('/update/:id').post((req,res) => {
                 res.status(400).json('Food not Found!')
             }
             if(food) { 
-                res.json(food);
+                res.json("Food Updated!");
             }
         })
         .catch(err => res.status(400).json('Error: '+ err));
@@ -66,7 +66,15 @@ router.route('/update/:id').post((req,res) => {
 //Delete by ID
 router.route('/:id').delete((req,res) => {
     Food.findByIdAndDelete(req.params.id)
-        .then(()=> {res.json('Food Deleted!')})
+        .then(food => {
+            if (!food) {
+                // no food found, do sth
+                res.status(400).json('Food not Found!')
+            }
+            if(food) { 
+                res.json("Food Deleted!");
+            }
+        })
         .catch(err => res.status(400).json('Error: '+ err));
 })
 //Findby Name
