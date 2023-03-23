@@ -29,10 +29,46 @@ router.route('/add').post((req, res) => {
 //Findby Food ID
 router.route('/:id').get((req, res) => {
     Food.findById(req.params.id)
-        .then(food => res.json(food))
+        .then(food => {
+            if (!food) {
+                // no food found, do sth
+                res.status(400).json('Food not Found!')
+            }
+            if(food) { 
+                res.json(food);
+            }
+        })
         .catch(err => res.status(400).json('Error: '+ err));
 });
 
+//Update by ID
+router.route('/update/:id').post((req,res) => {
+    Food.findByIdAndUpdate(req.params.id,
+         {
+            name : req.body.name,
+            category : req.body.category,
+            restaurantId : req.body.restId,
+            status : req.body.status,
+            img : req.body.img
+         })
+         .then(food => {
+            if (!food) {
+                // no food found, do sth
+                res.status(400).json('Food not Found!')
+            }
+            if(food) { 
+                res.json(food);
+            }
+        })
+        .catch(err => res.status(400).json('Error: '+ err));
+})
+
+//Delete by ID
+router.route('/:id').delete((req,res) => {
+    Food.findByIdAndDelete(req.params.id)
+        .then(()=> {res.json('Food Deleted!')})
+        .catch(err => res.status(400).json('Error: '+ err));
+})
 //Findby Name
 router.route('/search').post((req, res) => {
     Food.findOne({
