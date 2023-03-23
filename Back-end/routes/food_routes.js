@@ -16,10 +16,13 @@ router.route('/').get((req, res) => {
 router.route('/add').post((req, res) => {
     const restaurantId = req.body.restId;
     const name = req.body.name;
+    const price = req.body.price;
+    const description = req.body.description;
+    const img = req.body.img;
     const category = req.body.category;
     const status = req.body.status;
-    const img = req.body.img;
-    const newFood = new Food({restaurantId, name, category, status, img});
+    
+    const newFood = new Food({restaurantId, name, price,description,img, category, status, });
 
     newFood.save()
         .then(()=> {res.json('Food Added!')})
@@ -45,11 +48,14 @@ router.route('/:id').get((req, res) => {
 router.route('/update/:id').post((req,res) => {
     Food.findByIdAndUpdate(req.params.id,
          {
-            name : req.body.name,
-            category : req.body.category,
             restaurantId : req.body.restId,
+            name : req.body.name,
+            price : req.body.price,
+            description : req.body.description,
+            img : req.body.img,
+            category : req.body.category,
             status : req.body.status,
-            img : req.body.img
+            
          })
          .then(food => {
             if (!food) {

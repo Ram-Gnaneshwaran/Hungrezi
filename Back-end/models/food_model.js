@@ -11,11 +11,11 @@ const foodSchema = new Schema({
         type: String,
         required: true,
     },
-    category: {        
-        type: String,
+    price: {
+        type: Number,
         required: true,
     },
-    status: {
+    description: {
         type: String,
         required: true,
     },
@@ -23,8 +23,16 @@ const foodSchema = new Schema({
         type: String,
         required: true,
     },
+    category: {        
+        type: String,
+        required: true,
+    },
+    status: {
+        type: Boolean,
+        required: true,
+    },
     
-
+    
 
 }, {
     timestamps: true,
