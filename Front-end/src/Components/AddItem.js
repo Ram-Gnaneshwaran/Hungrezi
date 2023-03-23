@@ -4,7 +4,7 @@ import axios from "axios";
 function AddItem () {
 
   const [name, setName] = useState('');
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState(100);
   const [description, setdescription] = useState('');
   const [img, setImg] = useState('');
   const [category, setcategory] = useState('starters');
@@ -44,7 +44,7 @@ function AddItem () {
     }
 
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gray-100 min-h-screen">
       {/* Title */}
       <div class=" flex justify-center  text-5xl font-bold pt-5 pb-5 overline">
         Add Item
