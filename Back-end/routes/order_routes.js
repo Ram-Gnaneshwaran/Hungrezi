@@ -9,7 +9,7 @@ let Order = require('../models/order_model');
 router.route('/').get((req, res) => {
     Order.find()
         .then(order => res.json(order))
-        .catch(err => res.status(400).json('Error: '+ err));
+        .catch(err => res.status(400).json('Error1: '+ err));
 });
 
 //Create Order
