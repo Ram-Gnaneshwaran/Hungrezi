@@ -14,14 +14,7 @@ router.route('/add').post((req, res) => {
         if (error) return res.status(400).json({ "Error 1 ": error });
         if (cart) {
             const products = req.body.cartItems;
-            // products.forEach(prod => {
-            //     console.log("Product: " + prod.product);
-            // });
-            const isItemAdded = cart.cartItems;
-            // isItemAdded.forEach(exprod => {
-            //     console.log("Existing Product: " + exprod.product);
-            // });
-            
+            const isItemAdded = cart.cartItems;   
             isItemAdded.forEach((item) => {
                 products.forEach((prod) => {
                     if (item.product == prod.product) {
@@ -65,5 +58,23 @@ router.route('/add').post((req, res) => {
         }
     });
 });
+//Findby User ID
+router.route('/').post((req, res) => {
+    Cart.findOne({
+        user : req.body.user,
+    }, function (err, user) {
+        if (err) { res.status(400).json('Error Retrieveing Data: '+ err) }
+        if (!user) {
+            // no user found, do sth
+            res.status(400).json('User not Found! ')
+        }
+        if(user) { 
+            res.json(user)
+        }
+    })
+        
+        
+});
+
 
 module.exports = router;

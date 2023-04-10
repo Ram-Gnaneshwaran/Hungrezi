@@ -12,6 +12,9 @@ import Cart from '../../Components/Cart';
 
 
 function UserRestaurantHome() {
+  const location = useLocation();
+  const UserDetails = location.state;
+
 
   const [option, setoption] = useState(1);
   //Navigate
@@ -31,7 +34,7 @@ function UserRestaurantHome() {
   const content = () => {
     switch(option) {
       case 1: return <Menu></Menu>
-      case 2: return <Cart></Cart>
+      case 2: return <Cart user={UserDetails._id}></Cart>
       // default: return <div>Error</div>
     }
   }
@@ -102,7 +105,6 @@ function UserRestaurantHome() {
         <img class="aspect-square " src={LogoutImg} />
         <span class="text-[15px] ml-4 font-bold">Logout</span>
       </button>
-      
     </div>
       </div>
       

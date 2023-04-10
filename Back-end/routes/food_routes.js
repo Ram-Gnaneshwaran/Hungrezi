@@ -102,5 +102,22 @@ router.route('/search').post((req, res) => {
         
 });
 
+//Findby Id
+router.route('/foodid').post((req, res) => {
+    Food.findOne({
+        _id : req.body.id,
+    }, function (err, food) {
+        if (err) { res.status(400).json('Error Retrieveing Data: '+ err) }
+        if (!food) {
+            // no food found, do sth
+            res.status(400).json('Food not Found!')
+        }
+        if(food) { 
+            res.json(food)
+        }
+    })
+        
+});
+
 
 module.exports = router;
