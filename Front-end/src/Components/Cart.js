@@ -39,9 +39,7 @@ function Cart(props) {
       {cartItems.cartItems ? cartItems.cartItems.map((products) => {
             return (
                 <CartItem 
-                    Imgsrc={products.productImg}
-                    title={products.productName}
-                    desc={products.productDesc}
+                    product={products}
                     quantity={products.quantity}
                     price= {products.price}
                     />

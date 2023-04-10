@@ -3,11 +3,10 @@ import axios from 'axios';
 
 function ProductItem(props) {
 
-  
   const handleAddtoCart = (food) => {
     const addToCart =  {
       method: "post",
-      url: "http://localhost:9000/cart/add/",
+      url: "http://localhost:9000/cart/add",
       data: {
         "user": props.user._id,
         "cartItems" : [
@@ -26,8 +25,6 @@ function ProductItem(props) {
     axios(addToCart)
       .then(result => alert("Added to Cart"))
       .catch(err => alert("Cannot Add To Cart !"))
-
-    
 
   }
   return (

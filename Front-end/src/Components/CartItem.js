@@ -1,15 +1,44 @@
-import React from 'react'
+import React from 'react';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+
 
 function CartItem(props) {
+
+    
+
+      //Axios Configuration
+      const getFoodDetails = {
+        method: "post",
+        url: "http://localhost:9000/food/foodid",
+        data: {
+          "id": props.product.product,
+        },
+      };
+      const [food, setFood] = useState(JSON);
+  
+      const loadData = () => {
+        console.log(props.product)
+        axios(getFoodDetails)
+            .then(result => setFood(result.data))
+            .catch(err => console.log(err))
+    }
+  
+    useEffect(() => {
+      loadData()
+      
+  },[])
+
+
   return (
     <div class="mb-6 justify-between rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
         {/* Product image */}
-    <img src={props.Imgsrc} alt="product-image" class="w-full rounded-lg sm:w-40" />
+    <img src={food.img} alt="product-image" class="w-full rounded-lg sm:w-40" />
     <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
       <div class="mt-5 sm:mt-0">
         {/* Product Title */}
-        <h2 class="text-lg font-bold text-gray-900">{props.title}</h2>
-        <p class="mt-1 text-xs text-gray-700">{props.desc}</p>
+        <h2 class="text-lg font-bold text-gray-900">{food.name}</h2>
+        <p class="mt-1 text-xs text-gray-700">{food.description}</p>
       </div>
       <div class="mt-4 flex justify-between sm:mt-0 sm:block sm:space-x-6 sm:space-y-6">
         <div class="flex items-center border-gray-100">
