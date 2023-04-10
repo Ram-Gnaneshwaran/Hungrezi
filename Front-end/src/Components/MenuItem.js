@@ -5,7 +5,7 @@ import EditImg from '../Icons/Edit.svg'
 function MenuItem(props) {
   return (
     <article class="rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 ">
-          <a href="#">
+          
             {/* Product Image */}
             <div class="relative flex items-end overflow-hidden rounded-xl">
               <img class="h-[150px] w-full object-cover"src={props.Imgsrc} alt="Hotel Photo" />
@@ -28,7 +28,7 @@ function MenuItem(props) {
                 </div>
               </div>
             </div>
-          </a>
+          
         </article>
   )
 }
