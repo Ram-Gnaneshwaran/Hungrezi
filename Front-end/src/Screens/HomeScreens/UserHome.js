@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import {useLocation, Link, useNavigate} from 'react-router-dom';
 import LogoutImg from '../../Icons/Logout.svg';
+import axios from 'axios';
 
 
 function UserHome() {
@@ -16,6 +17,40 @@ function UserHome() {
     const handleNavigate = (e) => {
         navigate('/UserRestaurantHome', {state: UserDetails});
     }
+
+      //Add Empty Cart
+    const addEmptyCart = {
+      method: "post",
+      url: "http://localhost:9000/cart/add/",
+      data: {
+        user: UserDetails._id,
+        cartItems: []
+      },
+      };
+
+      //Check if Cart Exists
+      const checkUser = {
+        method: "post",
+        url: "http://localhost:9000/cart/" ,
+        data: {
+          user: UserDetails._id,
+        },
+      };
+
+
+      const handleCart = (e) => {
+        axios(checkUser)
+        .then(result => {
+            console.log("Cart Exists")
+        })
+        .catch(err => {
+          axios(addEmptyCart)
+          .then(result => console.log("Cart Added"))
+          .catch(err => console.log(err))
+        })
+      }
+      useEffect(handleCart,[])
+
   return (
     <div >
         <div class="flex justify-evenly mt-40 my w-full">

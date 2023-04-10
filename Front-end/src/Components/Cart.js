@@ -4,8 +4,6 @@ import axios from 'axios';
 
 function Cart(props) {
 
-
-
     //Axios Configuration
     const getCart = {
       method: "post",

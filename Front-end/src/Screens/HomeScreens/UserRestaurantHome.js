@@ -33,7 +33,7 @@ function UserRestaurantHome() {
   
   const content = () => {
     switch(option) {
-      case 1: return <Menu></Menu>
+      case 1: return <Menu user={UserDetails}></Menu>
       case 2: return <Cart user={UserDetails._id}></Cart>
       // default: return <div>Error</div>
     }

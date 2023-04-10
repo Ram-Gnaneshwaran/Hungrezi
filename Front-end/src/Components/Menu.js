@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import ProductItem from './ProductItem'
 
 
-function Menu() {
+function Menu(props) {
   const [foodItems, setFoodItems] = useState([]);
 
     //Axios Configuration
@@ -11,7 +11,7 @@ function Menu() {
         method: "get",
         url: "http://localhost:9000/food",
     };
-
+    
     const loadData = () => {
         axios(getFoodItems)
             .then(result => setFoodItems(result.data))
@@ -36,6 +36,8 @@ function Menu() {
       {foodItems ? foodItems.map((food) => {
             return (
                 <ProductItem 
+                    user={props.user}
+                    food = {food}
                     Imgsrc={food.img}
                     title={food.name}
                     desc={food.description}

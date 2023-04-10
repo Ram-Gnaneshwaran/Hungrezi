@@ -10,9 +10,25 @@ router.route('/add').post((req, res) => {
 
     Cart.findOne({
         user: req.body.user,
-        }).exec((error, cart) => {
+        })
+        .exec((error, cart) => {
         if (error) return res.status(400).json({ "Error 1 ": error });
         if (cart) {
+            if(cart.cartItems.length === 0) {
+                Cart.findOneAndUpdate({ user: req.body.user }, {
+                    "$push": {
+                        "cartItems": req.body.cartItems,
+                    },
+                }).exec((error, _cart) => {
+                    if (error) return res.status(400).json({"Error 6 ": error });
+                    if (_cart) {
+                        return res.status(201).json({ cart: _cart });
+                    }
+                });
+
+            }
+            else {
+
             const products = req.body.cartItems;
             const isItemAdded = cart.cartItems;   
             isItemAdded.forEach((item) => {
@@ -48,7 +64,9 @@ router.route('/add').post((req, res) => {
                 
             });
             
-        } else {
+            }
+        } 
+        else {
             const user = req.body.user;
             const cartItems = req.body.cartItems;
             const newCart = new Cart({user, cartItems});
@@ -58,6 +76,8 @@ router.route('/add').post((req, res) => {
         }
     });
 });
+
+
 //Findby User ID
 router.route('/').post((req, res) => {
     Cart.findOne({
