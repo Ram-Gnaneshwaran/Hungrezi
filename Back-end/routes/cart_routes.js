@@ -76,7 +76,6 @@ router.route('/add').post((req, res) => {
     });
 });
 
-
 //Findby User ID
 router.route('/').post((req, res) => {
     Cart.findOne({
