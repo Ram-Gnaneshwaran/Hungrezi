@@ -26,6 +26,7 @@ import Menu from './Components/Menu';
 
 //Import Landing Page
 import LandingPage from './Screens/LandingPage/LandingPage';
+import Reciept from './Screens/Final/Reciept';
 
 
 
@@ -44,6 +45,7 @@ function App() {
           <Route path='/Restaurant' element={<RestaurantLogin></RestaurantLogin>}></Route>
           <Route path='/UserHome' element={<UserHome></UserHome>}></Route>
           <Route path='/UserRestaurantHome' element={<UserRestaurantHome></UserRestaurantHome>}></Route>
+          <Route path='/Reciept' element={<Reciept></Reciept>}></Route>
           <Route path='/RestaurantHome' element={<RestaurantHome></RestaurantHome>}></Route>
           <Route path='/AdminHome' element={<AdminHome></AdminHome>}></Route>
           <Route path='/Admin' element={<AdminLogin></AdminLogin>}></Route>

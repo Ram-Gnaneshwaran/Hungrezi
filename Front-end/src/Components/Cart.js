@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import {useLocation, Link, useNavigate} from 'react-router-dom';
 import CartItem from './CartItem'
 import axios from 'axios';
 
 function Cart(props) {
     const [cartItems, setCartItems] = useState([]);
+    const navigate = useNavigate();
 
     //Axios Configuration
     const getCart = {
@@ -15,6 +17,11 @@ function Cart(props) {
     };
 
     var Total = 0;
+
+    const handleCheckOut = (e) => {
+      navigate('/Reciept', {state: Total});
+      console.log("Checkout");
+    }
 
 
     //Function to load data from backend
@@ -81,7 +88,7 @@ function Cart(props) {
             <p class="text-sm text-gray-700">including VAT</p>
           </div>
         </div>
-        <button class="mt-6 w-full rounded-md bg-mypurple py-1.5 font-medium text-blue-50 hover:bg-myindigo">Check out</button>
+        <button class="mt-6 w-full rounded-md bg-mypurple py-1.5 font-medium text-blue-50 hover:bg-myindigo" onClick={handleCheckOut}>Check out</button>
       </div>
     </div>
   </div>
