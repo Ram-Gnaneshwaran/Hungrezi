@@ -33,7 +33,7 @@ function CartItem(props) {
   return (
     <div class="mb-6 justify-between rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
         {/* Product image */}
-    <img src={food.img} alt="product-image" class="w-full rounded-lg sm:w-40" />
+    <img src={food.img} alt="product-image" class="w-[200px] h-[100px] object-cover rounded-lg sm:w-40" />
     <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
       <div class="mt-5 sm:mt-0">
         {/* Product Title */}
