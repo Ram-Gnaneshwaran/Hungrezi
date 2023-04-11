@@ -3,6 +3,7 @@ import CartItem from './CartItem'
 import axios from 'axios';
 
 function Cart(props) {
+    const [cartItems, setCartItems] = useState([]);
 
     //Axios Configuration
     const getCart = {
@@ -12,17 +13,22 @@ function Cart(props) {
         user: props.user,
       },
     };
-    const [cartItems, setCartItems] = useState([]);
+
+    var Total = 0;
+
+
+    //Function to load data from backend
 
     const loadData = () => {
       axios(getCart)
-          .then(result => setCartItems(result.data))
+          .then(result => {
+            setCartItems(result.data)
+          })
           .catch(err => console.log(err))
   }
 
   useEffect(() => {
     loadData()
-    
 },[])
 
   return (
@@ -36,7 +42,12 @@ function Cart(props) {
       <div class="rounded-lg md:w-2/3">
 
 
-      {cartItems.cartItems ? cartItems.cartItems.map((products) => {
+      {
+      cartItems.cartItems ? cartItems.cartItems.map((products) => {
+
+        Total += products.price * products.quantity
+        // setTotal(newTotal);
+
             return (
                 <CartItem 
                     product={products}
@@ -44,14 +55,19 @@ function Cart(props) {
                     price= {products.price}
                     />
             )
+
+            
         }) : <div>Nothing in Cart! </div>
+
+        
+        
         }
       </div>
       {/* Sub Total */}
       <div class="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
         <div class="mb-2 flex justify-between">
           <p class="text-gray-700">Subtotal</p>
-          <p class="text-gray-700">₹600</p>
+          <p class="text-gray-700">₹{Total}</p>
         </div>
         <div class="flex justify-between">
           <p class="text-gray-700">Extra Charges</p>
@@ -61,7 +77,7 @@ function Cart(props) {
         <div class="flex justify-between">
           <p class="text-lg font-bold">Total</p>
           <div class="">
-            <p class="mb-1 text-lg font-bold">₹600</p>
+            <p class="mb-1 text-lg font-bold">₹{Total}</p>
             <p class="text-sm text-gray-700">including VAT</p>
           </div>
         </div>
