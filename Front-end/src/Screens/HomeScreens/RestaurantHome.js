@@ -88,14 +88,14 @@ function RestaurantHome() {
       </button>
       
 
-      {/* Cart Button */}
+      {/* Orders Button */}
       
       <button
         class="p-2.5 mt-3 flex w-full items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-mypink text-black hover:text-white"
         onClick={handleOrder}
       >
         <img class="aspect-square " src={OrderImg} />
-        <span class="text-[15px] ml-4 font-bold">OrderDetails</span>
+        <span class="text-[15px] ml-4 font-bold">Orders</span>
       </button>
 
       {/* Add Item Button */}

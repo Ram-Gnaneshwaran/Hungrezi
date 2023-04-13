@@ -45,7 +45,12 @@ function UserRegister() {
       })
         .catch((error) => {alert("Error Logging In!");})
     })
-    .catch((error) => {alert("User Already Exists. Please Login!");})
+    .catch((error) => {
+      alert("User Already Exists. Please Login!")
+      console.log(error);
+    }
+      
+      )
     }
 
   return (
