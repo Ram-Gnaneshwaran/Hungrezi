@@ -31,7 +31,7 @@ function Home() {
             <div class="m-10 rounded-lg bg-white p-20 text-center hover:shadow-2xl transition duration-200 ease-in-out">
               {/* <img class="mt-2 aspect-square" src={UserImg} /> */}
               <Lottie class="w-[150px] h-[150px]" animationData={UserAnimation} loop={true} />
-              <div class="mt-10 text-lg font-bold">User</div>
+              <div class="mt-10 text-lg font-bold">Customer</div>
             </div>
             </Link> 
           </div>

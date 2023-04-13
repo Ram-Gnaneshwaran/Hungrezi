@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate} from 'react-router-dom';
+import Lottie from "lottie-react";
+import UserAnimation from "../../Lottie/User.json";
+
 
 import axios from "axios";
 
@@ -53,7 +56,8 @@ function UserLogin() {
     <div class="relative hidden h-full flex-auto items-center justify-center overflow-hidden bg-purple-900 bg-cover bg-no-repeat p-10 text-white sm:w-1/2 md:flex xl:w-3/5">
       <div class="bg-mypurple absolute inset-0 z-0"></div>
       <div class="z-10 w-full max-w-md">
-        <div class="mb-6 font-bold leading-tight sm:text-4xl xl:text-5xl">Reference site about Lorem Ipsum..</div>
+        <Lottie class="w-[500px] h-[500px]" animationData={UserAnimation} loop={true} />
+        <div class="mb-6 font-bold leading-tight sm:text-4xl xl:text-5xl">Customer.</div>
         <div class="xl:text-md font-normal text-gray-200 sm:text-sm">What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book it has?</div>
       </div>
     </div>
