@@ -55,8 +55,7 @@ function LandingPage(){
 </section>
     </div>
   </div>
-</div>
-
+      </div>
     
     )
 }
