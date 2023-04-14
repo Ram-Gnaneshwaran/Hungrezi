@@ -58,7 +58,7 @@ function UserLogin() {
       <div class="z-10 w-full max-w-md">
         <Lottie class="w-[500px] h-[500px]" animationData={UserAnimation} loop={true} />
         <div class="mb-6 font-bold leading-tight sm:text-4xl xl:text-5xl">Customer.</div>
-        <div class="xl:text-md font-normal text-gray-200 sm:text-sm">What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book it has?</div>
+        <div class="xl:text-md font-normal text-gray-200 sm:text-sm">Hungry but tired of waiting in line? Get your food ordered with Hungrezi - the ultimate food ordering solution!</div>
       </div>
     </div>
     <div class="w-full bg-white p-8 sm:w-auto sm:rounded-lg md:flex md:h-full md:items-center md:justify-center md:rounded-none md:p-10 lg:p-14 xl:w-2/5">

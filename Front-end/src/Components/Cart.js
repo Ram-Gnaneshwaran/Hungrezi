@@ -88,7 +88,7 @@ function Cart(props) {
             <p class="text-sm text-gray-700">including VAT</p>
           </div>
         </div>
-        <button class="mt-6 w-full rounded-md bg-mypurple py-1.5 font-medium text-blue-50 hover:bg-myindigo" onClick={handleCheckOut}>Check out</button>
+        <button onClick={() => { alert("Order Placed!")}}class="mt-6 w-full rounded-md bg-mypurple py-1.5 font-medium text-blue-50 hover:bg-myindigo" >Place Order</button>
       </div>
     </div>
   </div>
